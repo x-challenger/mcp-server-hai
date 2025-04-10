@@ -1,6 +1,6 @@
 # mcp-server-hai
 
-A MCP server implementation for Tecent HAI (Hyper Application Inventor) services
+A MCP server implementation for Tencent HAI (Hyper Application Inventor) services
 
 ## Installation
 
