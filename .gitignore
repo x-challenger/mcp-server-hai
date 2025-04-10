@@ -1,0 +1,27 @@
+# SQLite数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# Python缓存
+__pycache__/
+*.py[cod]
+*$py.class
+
+dist
+*.egg-info
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# IDE文件
+.vscode/
+.idea/
+
+# 日志文件
+*.log
+
+# 示例数据库文件(来自sqlite_example.py)
+example_sqlite.db
