@@ -1,13 +1,14 @@
 # server.py
 import os
+import importlib.resources
 from mcp.server.fastmcp import FastMCP
-
-from api_driver import HAIHandler
+from mcp_server_hai.api_driver import HAIHandler
 
 # Create an MCP server
 mcp = FastMCP("HAI(Hyper Application Inventor) MCP Server")
-hai_handler = HAIHandler(os.environ["TENCENTCLOUD_SECRET_ID"],
-                         os.environ["TENCENTCLOUD_SECRET_KEY"])
+hai_handler = HAIHandler(
+    os.environ["TENCENTCLOUD_SECRET_ID"], os.environ["TENCENTCLOUD_SECRET_KEY"]
+)
 
 
 @mcp.resource("resources://hai_introduction")
@@ -80,7 +81,9 @@ def instance_type():
         gpu_performance: 机型的总GPU算力
         gpu_mem: GPU显存大小
     """
-    with open("./bundle_type.csv", "r", encoding="utf-8") as fp:
+    with importlib.resources.open_text(
+        "mcp_server_hai", "bundle_type.csv", encoding="utf-8"
+    ) as fp:
         return fp.read()
 
 
@@ -124,8 +127,7 @@ def find_instance_region(instance_ids_str: str) -> dict[str, str]:
     return hai_handler.find_instances_region(instance_ids_str.split(","))
 
 
-@mcp.tool("start_instance",
-          description="used to start or power on the instance")
+@mcp.tool("start_instance", description="used to start or power on the instance")
 def start_instance(region: str, instance_id: str) -> str:
     """将指定实例开机
     Args:

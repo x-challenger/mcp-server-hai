@@ -27,7 +27,7 @@ add mcp-server-hai configuration to mcpServers as follows:
       "mcp-server-hai": {
         "command": "uvx",
         "args": [
-          "mcp-server-hai"
+          "mcp-server-hai@latest" // make sure you have installed the latest version, to use a specific version, use mcp-server-hai@version instead
         ],
         "env": {
           "TENCENTCLOUD_SECRET_ID": "YOUR_SECRET_ID_HERE",

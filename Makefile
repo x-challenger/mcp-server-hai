@@ -10,3 +10,6 @@ build: clean
 release: build
 	uv run twine upload dist/*
 
+install: build
+	uv pip install --force-reinstall dist/*.whl
+

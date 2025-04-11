@@ -1,6 +1,6 @@
 [project]
 name = "mcp-server-hai"
-version = "1.1.1"
+version = "1.2.3"
 description = "A MCP server implementation for HAI (Hyper Application Inventor) services"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -12,8 +12,11 @@ dependencies = [
     "uvicorn>=0.34.0",
 ]
 
-[tool.setuptools]
-py-modules = ["server", "utils", "api_driver"]
-
 [project.scripts]
-mcp-server-hai = "server:mcp.run"
+mcp-server-hai = "mcp_server_hai.server:mcp.run"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mcp_server_hai = ["bundle_type.csv"]
